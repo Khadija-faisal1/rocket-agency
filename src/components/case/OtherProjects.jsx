@@ -1,31 +1,30 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
-import { cases } from "../../data/cases";
+import { getOtherCases } from "../../data/cases";
 import Media from "../ui/Media";
 import Tag from "../ui/Tag";
-
 
 export default function OtherProjects({
   currentSlug,
   items,
-  tag = "Case studies",
+  tag = "Explore more",
   heading = "Other",
   accent = "Projects",
 }) {
   const track = useRef(null);
+  // Same category first, then the rest (see getOtherCases in data/cases.js)
   const list =
     items ||
-    cases
-      .filter((c) => c.slug !== currentSlug)
-      .slice(0, 5)
-      .map((c) => ({
-        title: c.client,
-        tags: [c.category],
-        src: c.images.cover,
-        to: `/case/${c.slug}`,
-        gradient: "from-slate-600 to-slate-900",
-      }));
+    getOtherCases(currentSlug, 6).map((c) => ({
+      key: c.slug,
+      title: c.client,
+      eyebrow: c.category,
+      tags: c.services,
+      src: c.images.cover,
+      to: `/case/${c.slug}`,
+      gradient: c.gradient,
+    }));
   const scroll = (d) =>
     track.current?.scrollBy({ left: d * 320, behavior: "smooth" });
 
@@ -72,7 +71,7 @@ export default function OtherProjects({
         >
           {list.map((p) => (
             <li
-              key={p.title}
+              key={p.key || p.title}
               className="w-[min(76vw,280px)] shrink-0 snap-start"
             >
               <Link
@@ -92,6 +91,11 @@ export default function OtherProjects({
                   />
                   <div className="absolute inset-x-2.5 bottom-2.5 flex items-center justify-between rounded-xl border border-white/20 bg-white/10 px-3.5 py-3 shadow-[inset_0_1px_0_rgba(255,255,255,.2)] backdrop-blur-xl">
                     <div className="min-w-0">
+                      {p.eyebrow && (
+                        <p className="text-[10px] uppercase tracking-[0.18em] text-white/65">
+                          {p.eyebrow}
+                        </p>
+                      )}
                       <p className="truncate font-display text-[15px] font-medium">
                         {p.title}
                       </p>
