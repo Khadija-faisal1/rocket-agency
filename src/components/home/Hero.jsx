@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import Button from '../ui/Button'
 import TrustedBrands from '../ui/TrustedBrands'
 
@@ -16,8 +16,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <img
           src={bgImage}
-          alt=""
-          aria-hidden="true"
+          alt="Hero Background"
           fetchPriority="high"
           decoding="async"
           className="h-full w-full object-cover object-center"
@@ -76,7 +75,7 @@ export default function Hero() {
       </div>
 
       {/* Trusted Brands Footer Bar */}
-      <TrustedBrands className="absolute inset-x-0 bottom-0 z-10 mx-auto max-w-7xl border-0 px-6 pb-10 md:px-10" />
+      <TrustedBrands className="absolute inset-x-0 bottom-0 z-10 mx-auto max-w-7xl px-6 pb-10 md:px-10" />
     </section>
   )
 }

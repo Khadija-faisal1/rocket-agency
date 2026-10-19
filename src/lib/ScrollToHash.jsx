@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-// export { default } from './SmoothScroll'
 
 // Scrolls to #anchors after navigation, or to the top for plain routes.
 export default function ScrollToHash() {

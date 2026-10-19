@@ -36,7 +36,7 @@ const servicesData = [
 
 export default function ServicesGridSection() {
   return (
-    <section className="relative overflow-hidden bg-[#070a12] px-6 py-28 text-white md:px-10">
+    <section id='services' className="relative overflow-hidden bg-[#070a12] px-6 py-28 text-white md:px-10">
       {/* Background Subtle Pattern & Curved Ambient Light Ring */}
       <div className="pointer-events-none absolute inset-0 z-0">
         {/* Subtle background 'R' grid pattern opacity */}

@@ -1,12 +1,15 @@
-import { Routes, Route } from 'react-router-dom'
-import Layout from './components/layout/Layout'
-import Home from './pages/Home'
-import About from './pages/About'
-import CaseStudy from './pages/CaseStudy'
-import ThankYou from './pages/ThankYou'
-import NotFound from './pages/NotFound'
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import CaseStudy from "./pages/CaseStudy";
+import ThankYou from "./pages/ThankYou";
+import NotFound from "./pages/NotFound";
+import { useLenis } from "./hooks/useLenis";
 
 export default function App() {
+  useLenis();
+
   return (
     <Routes>
       <Route element={<Layout />}>
@@ -17,5 +20,5 @@ export default function App() {
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
-  )
+  );
 }
