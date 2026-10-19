@@ -14,7 +14,7 @@ export default function Sphere({ variant = 'pink', className = '', src }) {
 
   if (!failed) {
     return (
-      <img src={src || `/images/spheres/${variant}.webp`} alt="" aria-hidden="true" draggable="false" onError={() => setFailed(true)}
+      <img src={src || `/images/about/${variant}-ball.png`} alt="" aria-hidden="true" draggable="false" onError={() => setFailed(true)}
         className={`pointer-events-none absolute select-none animate-float object-contain ${className}`} />
     )
   }

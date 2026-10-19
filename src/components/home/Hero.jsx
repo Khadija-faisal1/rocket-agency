@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import Button from '../ui/Button'
 import TrustedBrands from '../ui/TrustedBrands'
 
-// Option 1: Put your background image in `public/bg-hero.jpg`
-// Option 2: Import directly if inside `src/assets/`: import bgImage from '../../assets/hero-bg.jpg'
 const bgImage = '/images/hero-img.jpg'
 
 export default function Hero() {
@@ -18,7 +16,10 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <img
           src={bgImage}
-          alt="Hero Background"
+          alt=""
+          aria-hidden="true"
+          fetchPriority="high"
+          decoding="async"
           className="h-full w-full object-cover object-center"
         />
         {/* Soft dark radial & linear gradients to keep text fully legible while matching the clean reference look */}
@@ -75,7 +76,7 @@ export default function Hero() {
       </div>
 
       {/* Trusted Brands Footer Bar */}
-      <TrustedBrands className="absolute inset-x-0 bottom-0 z-10 mx-auto max-w-7xl px-6 pb-10 md:px-10" />
+      <TrustedBrands className="absolute inset-x-0 bottom-0 z-10 mx-auto max-w-7xl border-0 px-6 pb-10 md:px-10" />
     </section>
   )
 }

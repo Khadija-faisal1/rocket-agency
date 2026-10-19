@@ -161,11 +161,11 @@ export const ceo = {
 // Five project cards (images: public/images/projects/project-1.webp ... project-5.webp)
 const pr = (n) => `/images/about/other-project-${n}.png`
 export const projects = [
-  { title: 'Cluely', tags: ['Web'], src: pr(5), to: '/case/viture', gradient: 'from-indigo-800 to-slate-950' },
-  { title: 'Lenovo', tags: ['Web App', 'UI/UX'], src: pr(3), to: '/case/kastle', gradient: 'from-rose-800 to-fuchsia-950' },
-  { title: 'Rocket Agency', tags: ['Web', 'Branding'], src: pr(1), to: '/case/microsoft', gradient: 'from-sky-800 to-indigo-950' },
-  { title: 'Pasta Si', tags: ['Mobile App'], src: pr(2), to: '/case/cluely', gradient: 'from-blue-800 to-slate-950' },
-  { title: 'Baskin Robbins', tags: ['Branding'], src: pr(4), to: '/case/baskin-robbins', gradient: 'from-fuchsia-800 to-blue-950' },
+  { title: 'UFO Bean', tags: ['Branding'], src: pr(6), to: '/case/ufo-bean', gradient: 'from-rose-800 to-fuchsia-950' },
+  { title: 'Baskin Robbins', tags: ['3d'], src: pr(2), to: '/case/baskin-robbins', gradient: 'from-fuchsia-800 to-blue-950' },
+  { title: 'Pasta Si', tags: ['Branding'], src: pr(3), to: '/case/pasta-si', gradient: 'from-blue-800 to-slate-950' },
+  { title: 'Cluely', tags: ['Web'], src: pr(4), to: '/case/cluely', gradient: 'from-indigo-800 to-slate-950' },
+  { title: 'Lenovo', tags: ['3d'], src: pr(1), to: '/case/lenovo', gradient: 'from-sky-800 to-indigo-950' },
 ]
 
 // Shared image paths
