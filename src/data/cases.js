@@ -29,59 +29,6 @@ const facts = (industry, services, timeline) => [
   { label: "Timeline", value: timeline },
 ];
 
-
-const webStory = [
-  [
-    "Research",
-    "Understanding the Audience",
-    "Every successful website starts with a clear understanding of its audience and purpose. We explored user expectations, industry patterns, and the brand's digital goals to establish a strong foundation. This helped shape a focused direction for the content, structure, and overall experience."
-  ],
-  [
-    "Design",
-    "Crafting the Digital Experience",
-    "The design brings together thoughtful layouts, expressive typography, and a consistent visual language. Each section is organised to make information easy to explore while maintaining a natural flow between content. Responsive components and carefully balanced spacing help the experience feel polished across different screen sizes."
-  ],
-  [
-    "Build",
-    "Development & Launch",
-    "The development stage transforms the design into a functional and responsive website. Interactive elements, reusable components, and structured page layouts work together to create a consistent experience. Attention to accessibility, loading performance, and usability helps prepare the website for visitors across modern devices."
-  ],
-];
-const threeDStory = [
-  [
-    "Concept",
-    "Building the Creative Direction",
-    "The project begins with an idea that defines the mood, atmosphere, and visual identity of the final experience. We explore composition, colour, and storytelling to establish a direction that supports the brand's message. This creative foundation helps ensure that every scene feels connected to the overall concept."
-  ],
-  [
-    "Modelling",
-    "Creating Detailed 3D Worlds",
-    "Models, textures, and materials are developed to give each object a distinctive appearance and believable presence. Carefully considered proportions and surface details add depth without overwhelming the composition. Lighting and environmental elements work together to create a cohesive visual world that feels intentional and visually engaging."
-  ],
-  [
-    "Animation",
-    "Motion, Lighting & Final Render",
-    "Camera movements and carefully timed transitions guide the viewer through the experience. Refined lighting, material reflections, and animation timing bring energy to each scene while keeping the main subject in focus. The final render combines these elements into a polished visual presentation with a clear sense of rhythm and atmosphere."
-  ],
-];
-const brandStory = [
-  [
-    "Strategy",
-    "Discovering the Brand's Identity",
-    "A memorable brand begins with a clear understanding of its purpose, audience, and personality. We explore the values and ideas that make the brand distinctive, using them to guide the creative direction. This foundation helps create an identity that communicates a consistent message and connects naturally with its intended audience."
-  ],
-  [
-    "Identity",
-    "Designing a Distinctive Visual System",
-    "The visual identity combines typography, colour, graphic elements, and logo design into a recognisable system. Each component is selected to complement the brand's character while remaining flexible across different applications. The result is a considered visual language that balances originality, clarity, and consistency."
-  ],
-  [
-    "Guidelines",
-    "Bringing the Brand Together",
-    "A cohesive brand requires a consistent approach across every customer touchpoint. Clear guidelines establish how the logo, colours, typography, and supporting graphics should be used. From digital platforms and social media to packaging and printed materials, the system helps maintain a unified and professional brand presence."
-  ],
-];
-
 const make = (category, client, headline, accent = "", extra = {}) => {
   const {
     images: imageOverrides = {},
@@ -109,7 +56,7 @@ const make = (category, client, headline, accent = "", extra = {}) => {
       gallery: [1, 2, 3].map((n) => `${base}/gallery-${n}.png`),
       ...imageOverrides,
       hero,
-      cover: imageOverrides.cover ?? hero,
+      cover: imageOverrides.cover ?? `${base}/hero.png`,
     },
     sections: story.map(([tag, title, body, light], i) => ({
       tag,
@@ -125,41 +72,127 @@ const make = (category, client, headline, accent = "", extra = {}) => {
 
 export const cases = [
   make("Web", "Slash", "Slash", "Case Study", {
+    website: "https://www.slash.com/",
     featured: true,
     meta: facts("Technology", "UI/UX Design & Development", "8 Weeks"),
     overview:
-      "We designed and built a modern, conversion-focused website for Slash.",
-    story: webStory,
+      "Slash needed a website that explains its platform and what makes it different clearly and gives growing businesses a reason to take the next step. We built the experience around clarity and trust, so the structure moves naturally from first impression to action.\n\nThe finished site pairs a confident dark interface with crisp accents with fast, dependable performance. Content is easy to scan, motion stays subtle, and every page works comfortably from large desktop screens to small phones. The result is a confident digital presence that feels consistent with the brand and easy for the team to grow.",
+    story: [
+      [
+        "Research",
+        "Understanding Slash’s Audience",
+        "We started by mapping how growing businesses discover, compare, and decide, looking closely at competitor sites and common drop-off points. These findings shaped a clear content hierarchy for Slash.\n\nWorkshops with the team turned that research into goals, priorities, and a simple sitemap. Every later design choice traces back to this foundation, which kept the project focused and the feedback loops short.",
+      ],
+      [
+        "Design",
+        "Crafting the Slash Experience",
+        "The interface uses a confident dark interface with crisp accents, supported by flexible grids, expressive typography, and generous spacing. Key sections are designed as reusable components, so the site stays consistent as new pages are added.\n\nLayouts were tested early on mobile and desktop to make sure hierarchy and readability hold up everywhere. Small details such as hover states, transitions, and iconography add polish without slowing the experience down.",
+      ],
+      [
+        "Build",
+        "Development & Launch",
+        "Development turned the approved designs into a fast, accessible build with clean, maintainable code. Pages load quickly, images are optimised, and interactions respond smoothly on modern browsers and devices.\n\nBefore launch we tested across screen sizes, checked accessibility basics, and prepared the site for easy content updates. Slash now has a flexible foundation that is ready to grow with the business.",
+      ],
+    ],
   }),
 
   make("Web", "Cluely", "Cluely", "Case Study", {
+    website: "https://cluely.com/",
     featured: true,
     meta: facts("Technology", "UI/UX Design & Development", "8 Weeks"),
     overview:
-      "We designed and built a modern, conversion-focused website for Cluely.",
-    story: webStory,
+      "Cluely needed a website that explains its AI assistant clearly and gives professionals and students a reason to take the next step. We built the experience around instant understanding, so the structure moves naturally from first impression to action.\n\nThe finished site pairs a sleek, modern interface with soft gradients with fast, dependable performance. Content is easy to scan, motion stays subtle, and every page works comfortably from large desktop screens to small phones. The result is a confident digital presence that feels consistent with the brand and easy for the team to grow.",
+    story: [
+      [
+        "Research",
+        "Understanding Cluely’s Audience",
+        "We started by mapping how professionals and students discover, compare, and decide, looking closely at competitor sites and common drop-off points. These findings shaped a clear content hierarchy for Cluely.\n\nWorkshops with the team turned that research into goals, priorities, and a simple sitemap. Every later design choice traces back to this foundation, which kept the project focused and the feedback loops short.",
+      ],
+      [
+        "Design",
+        "Crafting the Cluely Experience",
+        "The interface uses a sleek, modern interface with soft gradients, supported by flexible grids, expressive typography, and generous spacing. Key sections are designed as reusable components, so the site stays consistent as new pages are added.\n\nLayouts were tested early on mobile and desktop to make sure hierarchy and readability hold up everywhere. Small details such as hover states, transitions, and iconography add polish without slowing the experience down.",
+      ],
+      [
+        "Build",
+        "Development & Launch",
+        "Development turned the approved designs into a fast, accessible build with clean, maintainable code. Pages load quickly, images are optimised, and interactions respond smoothly on modern browsers and devices.\n\nBefore launch we tested across screen sizes, checked accessibility basics, and prepared the site for easy content updates. Cluely now has a flexible foundation that is ready to grow with the business.",
+      ],
+    ],
   }),
 
   make("Web", "Kastle", "Kastle", "Case Study", {
+    website: "https://www.kastle.ai/",
     meta: facts("Technology", "UI/UX Design & Development", "8 Weeks"),
     overview:
-      "We designed and built a modern, conversion-focused website for Kastle.",
-    story: webStory,
+      "Kastle needed a website that explains its services clearly and gives business customers a reason to take the next step. We built the experience around reliability and simplicity, so the structure moves naturally from first impression to action.\n\nThe finished site pairs clean layouts with a calm, professional palette with fast, dependable performance. Content is easy to scan, motion stays subtle, and every page works comfortably from large desktop screens to small phones. The result is a confident digital presence that feels consistent with the brand and easy for the team to grow.",
+    story: [
+      [
+        "Research",
+        "Understanding Kastle’s Audience",
+        "We started by mapping how business customers discover, compare, and decide, looking closely at competitor sites and common drop-off points. These findings shaped a clear content hierarchy for Kastle.\n\nWorkshops with the team turned that research into goals, priorities, and a simple sitemap. Every later design choice traces back to this foundation, which kept the project focused and the feedback loops short.",
+      ],
+      [
+        "Design",
+        "Crafting the Kastle Experience",
+        "The interface uses clean layouts with a calm, professional palette, supported by flexible grids, expressive typography, and generous spacing. Key sections are designed as reusable components, so the site stays consistent as new pages are added.\n\nLayouts were tested early on mobile and desktop to make sure hierarchy and readability hold up everywhere. Small details such as hover states, transitions, and iconography add polish without slowing the experience down.",
+      ],
+      [
+        "Build",
+        "Development & Launch",
+        "Development turned the approved designs into a fast, accessible build with clean, maintainable code. Pages load quickly, images are optimised, and interactions respond smoothly on modern browsers and devices.\n\nBefore launch we tested across screen sizes, checked accessibility basics, and prepared the site for easy content updates. Kastle now has a flexible foundation that is ready to grow with the business.",
+      ],
+    ],
   }),
 
   make("Web", "Viture", "Viture", "Case Study", {
+    website: "https://www.viture.com/luma/luma",
     meta: facts("Consumer Tech", "UI/UX Design & Development", "8 Weeks"),
     overview:
-      "We designed and built a modern, conversion-focused website for Viture.",
-    story: webStory,
+      "Viture needed a website that explains its immersive display products clearly and gives gamers and creators a reason to take the next step. We built the experience around immersion and product detail, so the structure moves naturally from first impression to action.\n\nThe finished site pairs bold visuals with rich product imagery with fast, dependable performance. Content is easy to scan, motion stays subtle, and every page works comfortably from large desktop screens to small phones. The result is a confident digital presence that feels consistent with the brand and easy for the team to grow.",
+    story: [
+      [
+        "Research",
+        "Understanding Viture’s Audience",
+        "We started by mapping how gamers and creators discover, compare, and decide, looking closely at competitor sites and common drop-off points. These findings shaped a clear content hierarchy for Viture.\n\nWorkshops with the team turned that research into goals, priorities, and a simple sitemap. Every later design choice traces back to this foundation, which kept the project focused and the feedback loops short.",
+      ],
+      [
+        "Design",
+        "Crafting the Viture Experience",
+        "The interface uses bold visuals with rich product imagery, supported by flexible grids, expressive typography, and generous spacing. Key sections are designed as reusable components, so the site stays consistent as new pages are added.\n\nLayouts were tested early on mobile and desktop to make sure hierarchy and readability hold up everywhere. Small details such as hover states, transitions, and iconography add polish without slowing the experience down.",
+      ],
+      [
+        "Build",
+        "Development & Launch",
+        "Development turned the approved designs into a fast, accessible build with clean, maintainable code. Pages load quickly, images are optimised, and interactions respond smoothly on modern browsers and devices.\n\nBefore launch we tested across screen sizes, checked accessibility basics, and prepared the site for easy content updates. Viture now has a flexible foundation that is ready to grow with the business.",
+      ],
+    ],
   }),
 
   make("Web", "WorkLouder", "WorkLouder", "Case Study", {
+    website: "https://worklouder.cc/",
     meta: facts("Marketing", "UI/UX Design & Development", "8 Weeks"),
     overview:
-      "We designed and built a modern, conversion-focused website for WorkLouder.",
-    story: webStory,
+      "WorkLouder needed a website that explains its marketing services clearly and gives brands that want to grow a reason to take the next step. We built the experience around results and credibility, so the structure moves naturally from first impression to action.\n\nThe finished site pairs energetic typography with vibrant colour accents with fast, dependable performance. Content is easy to scan, motion stays subtle, and every page works comfortably from large desktop screens to small phones. The result is a confident digital presence that feels consistent with the brand and easy for the team to grow.",
+    story: [
+      [
+        "Research",
+        "Understanding WorkLouder’s Audience",
+        "We started by mapping how brands that want to grow discover, compare, and decide, looking closely at competitor sites and common drop-off points. These findings shaped a clear content hierarchy for WorkLouder.\n\nWorkshops with the team turned that research into goals, priorities, and a simple sitemap. Every later design choice traces back to this foundation, which kept the project focused and the feedback loops short.",
+      ],
+      [
+        "Design",
+        "Crafting the WorkLouder Experience",
+        "The interface uses energetic typography with vibrant colour accents, supported by flexible grids, expressive typography, and generous spacing. Key sections are designed as reusable components, so the site stays consistent as new pages are added.\n\nLayouts were tested early on mobile and desktop to make sure hierarchy and readability hold up everywhere. Small details such as hover states, transitions, and iconography add polish without slowing the experience down.",
+      ],
+      [
+        "Build",
+        "Development & Launch",
+        "Development turned the approved designs into a fast, accessible build with clean, maintainable code. Pages load quickly, images are optimised, and interactions respond smoothly on modern browsers and devices.\n\nBefore launch we tested across screen sizes, checked accessibility basics, and prepared the site for easy content updates. WorkLouder now has a flexible foundation that is ready to grow with the business.",
+      ],
+    ],
   }),
+
 
   make("3D", "Baskin Robbins", "A Scoop of a World Built on", "Ice Cream", {
     featured: true,
@@ -173,9 +206,6 @@ export const cases = [
     images: {
       hero: "/images/cases/baskin-robbins/hero.gif",
     },
-    // images: {
-    //   hero: "/images/cases/baskin-robbins/gallery-3.png",
-    // },
     story: [
       [
         "Process",
@@ -199,25 +229,74 @@ export const cases = [
   make("3D", "IGA", "IGA", "3D Animation", {
     meta: facts("Retail", "3D Animation & Motion Graphics", "10 Weeks"),
     overview:
-      "The IGA project explores how product-focused 3D visuals can turn everyday retail moments into a polished and engaging brand experience. Carefully composed scenes, considered lighting, and clear visual hierarchy help each featured element stand out.",
-    story: threeDStory,
+      "For IGA, we created a bright and inviting 3D film that turns everyday grocery moments into a story worth watching. Every scene is composed around a clean, stylised supermarket world, with lighting, colour, and camera moves chosen to keep the main subject clear and memorable.\n\nFrom the first frame to the final render, the direction balances warm detail with clear product focus with a steady, cinematic pace. The finished piece gives IGA a polished, flexible asset that works across campaigns, social channels, and presentations, and it leaves room for future chapters of the same visual world.",
+    story: [
+      [
+        "Concept",
+        "Shaping the IGA Story",
+        "The project began with a short creative brief and a set of mood references that defined colour, atmosphere, and pacing. We then wrote a script and storyboard that follow everyday grocery moments from the opening shot to the closing frame.\n\nEarly animatics let us test timing and composition before heavy production started, so the team could agree on the direction with confidence and avoid costly changes later.",
+      ],
+      [
+        "Modelling",
+        "Building the World",
+        "Hero assets were modelled with careful attention to proportion, edge detail, and surface quality, then textured with materials that react naturally to light. A clean, stylised supermarket world was assembled around them to give every shot depth and a believable sense of scale.\n\nSupporting props and background elements were kept intentionally simple, so they add richness without competing with the main subject. The result is a world that feels crafted, tidy, and easy to read.",
+      ],
+      [
+        "Animation",
+        "Motion, Lighting & Final Render",
+        "Camera moves, timing, and transitions were animated to guide the eye through each scene with a clear rhythm. Lighting and reflections were refined shot by shot so key details stay sharp and the mood stays consistent.\n\nThe final render and colour grade bring everything together into a clean, cinematic finish, delivered in the formats IGA needs for launch and for future reuse.",
+      ],
+    ],
   }),
 
   make("3D", "Mumu's Journey", "Mumu's Journey", "", {
     meta: facts("Entertainment", "3D Animation & Motion Graphics", "10 Weeks"),
     overview:
-      "Mumu's Journey brings a character-led story to life through expressive environments, detailed 3D assets, and carefully paced animation. Each scene contributes to a visual journey designed to feel immersive, coherent, and memorable.",
-    story: threeDStory,
+      "For Mumu's Journey, we created a warm and imaginative 3D film that turns a small character’s adventure into a story worth watching. Every scene is composed around layered, storybook-style environments, with lighting, colour, and camera moves chosen to keep the main subject clear and memorable.\n\nFrom the first frame to the final render, the direction balances gentle emotion with playful discovery with a steady, cinematic pace. The finished piece gives Mumu's Journey a polished, flexible asset that works across campaigns, social channels, and presentations, and it leaves room for future chapters of the same visual world.",
+    story: [
+      [
+        "Concept",
+        "Shaping the Mumu's Journey Story",
+        "The project began with a short creative brief and a set of mood references that defined colour, atmosphere, and pacing. We then wrote a script and storyboard that follow a small character’s adventure from the opening shot to the closing frame.\n\nEarly animatics let us test timing and composition before heavy production started, so the team could agree on the direction with confidence and avoid costly changes later.",
+      ],
+      [
+        "Modelling",
+        "Building the World",
+        "Hero assets were modelled with careful attention to proportion, edge detail, and surface quality, then textured with materials that react naturally to light. Layered, storybook-style environments was assembled around them to give every shot depth and a believable sense of scale.\n\nSupporting props and background elements were kept intentionally simple, so they add richness without competing with the main subject. The result is a world that feels crafted, tidy, and easy to read.",
+      ],
+      [
+        "Animation",
+        "Motion, Lighting & Final Render",
+        "Camera moves, timing, and transitions were animated to guide the eye through each scene with a clear rhythm. Lighting and reflections were refined shot by shot so key details stay sharp and the mood stays consistent.\n\nThe final render and colour grade bring everything together into a clean, cinematic finish, delivered in the formats Mumu's Journey needs for launch and for future reuse.",
+      ],
+    ],
   }),
 
   make("3D", "McLaren", "The Art of Speed", "with McLaren", {
     meta: facts("Automotive", "3D Animation & Motion Graphics", "10 Weeks"),
     overview:
-      "The McLaren concept celebrates precision, speed, and automotive design through cinematic product visuals. Controlled camera movement, dramatic lighting, and detailed materials place the vehicle at the centre of a refined visual experience.",
-    story: threeDStory,
+      "For McLaren, we created a sleek and dramatic 3D film that turns speed and precision into a story worth watching. Every scene is composed around a controlled studio with sweeping reflections, with lighting, colour, and camera moves chosen to keep the main subject clear and memorable.\n\nFrom the first frame to the final render, the direction balances raw power with refined detail with a steady, cinematic pace. The finished piece gives McLaren a polished, flexible asset that works across campaigns, social channels, and presentations, and it leaves room for future chapters of the same visual world.",
+    story: [
+      [
+        "Concept",
+        "Shaping the McLaren Story",
+        "The project began with a short creative brief and a set of mood references that defined colour, atmosphere, and pacing. We then wrote a script and storyboard that follow speed and precision from the opening shot to the closing frame.\n\nEarly animatics let us test timing and composition before heavy production started, so the team could agree on the direction with confidence and avoid costly changes later.",
+      ],
+      [
+        "Modelling",
+        "Building the World",
+        "Hero assets were modelled with careful attention to proportion, edge detail, and surface quality, then textured with materials that react naturally to light. A controlled studio with sweeping reflections was assembled around them to give every shot depth and a believable sense of scale.\n\nSupporting props and background elements were kept intentionally simple, so they add richness without competing with the main subject. The result is a world that feels crafted, tidy, and easy to read.",
+      ],
+      [
+        "Animation",
+        "Motion, Lighting & Final Render",
+        "Camera moves, timing, and transitions were animated to guide the eye through each scene with a clear rhythm. Lighting and reflections were refined shot by shot so key details stay sharp and the mood stays consistent.\n\nThe final render and colour grade bring everything together into a clean, cinematic finish, delivered in the formats McLaren needs for launch and for future reuse.",
+      ],
+    ],
   }),
 
-  make("3D", "lenovo", "Built for Everyday Creativity", "", {
+
+  make("3D", "Lenovo", "Built for Everyday Creativity", "", {
     slug: "lenovo",
     meta: facts(
       "Technology",
@@ -249,114 +328,261 @@ export const cases = [
     featured: true,
     meta: facts("Technology", "3D Animation & Motion Graphics", "10 Weeks"),
     overview:
-      "This Microsoft concept presents modern collaboration through a clean, cinematic 3D visual language. Balanced compositions and purposeful motion communicate connected workflows while keeping the experience approachable and visually consistent.",
-    story: threeDStory,
+      "For Microsoft, we created a clean and optimistic 3D film that turns modern teamwork into a story worth watching. Every scene is composed around bright, minimal workspaces, with lighting, colour, and camera moves chosen to keep the main subject clear and memorable.\n\nFrom the first frame to the final render, the direction balances human warmth with technical precision with a steady, cinematic pace. The finished piece gives Microsoft a polished, flexible asset that works across campaigns, social channels, and presentations, and it leaves room for future chapters of the same visual world.",
+    story: [
+      [
+        "Concept",
+        "Shaping the Microsoft Story",
+        "The project began with a short creative brief and a set of mood references that defined colour, atmosphere, and pacing. We then wrote a script and storyboard that follow modern teamwork from the opening shot to the closing frame.\n\nEarly animatics let us test timing and composition before heavy production started, so the team could agree on the direction with confidence and avoid costly changes later.",
+      ],
+      [
+        "Modelling",
+        "Building the World",
+        "Hero assets were modelled with careful attention to proportion, edge detail, and surface quality, then textured with materials that react naturally to light. Bright, minimal workspaces was assembled around them to give every shot depth and a believable sense of scale.\n\nSupporting props and background elements were kept intentionally simple, so they add richness without competing with the main subject. The result is a world that feels crafted, tidy, and easy to read.",
+      ],
+      [
+        "Animation",
+        "Motion, Lighting & Final Render",
+        "Camera moves, timing, and transitions were animated to guide the eye through each scene with a clear rhythm. Lighting and reflections were refined shot by shot so key details stay sharp and the mood stays consistent.\n\nThe final render and colour grade bring everything together into a clean, cinematic finish, delivered in the formats Microsoft needs for launch and for future reuse.",
+      ],
+    ],
   }),
 
   make("3D", "Xiaomi", "A New Era of Performance", "with Xiaomi", {
     meta: facts("Consumer Tech", "3D Animation & Motion Graphics", "10 Weeks"),
     overview:
-      "The Xiaomi concept focuses on contemporary product design through crisp materials, confident lighting, and a controlled cinematic pace. The visual direction highlights performance and detail without overcrowding the frame.",
-    story: threeDStory,
+      "For Xiaomi, we created a crisp and energetic 3D film that turns next-generation performance into a story worth watching. Every scene is composed around a high-contrast tech stage with sharp light, with lighting, colour, and camera moves chosen to keep the main subject clear and memorable.\n\nFrom the first frame to the final render, the direction balances bold motion with fine product detail with a steady, cinematic pace. The finished piece gives Xiaomi a polished, flexible asset that works across campaigns, social channels, and presentations, and it leaves room for future chapters of the same visual world.",
+    story: [
+      [
+        "Concept",
+        "Shaping the Xiaomi Story",
+        "The project began with a short creative brief and a set of mood references that defined colour, atmosphere, and pacing. We then wrote a script and storyboard that follow next-generation performance from the opening shot to the closing frame.\n\nEarly animatics let us test timing and composition before heavy production started, so the team could agree on the direction with confidence and avoid costly changes later.",
+      ],
+      [
+        "Modelling",
+        "Building the World",
+        "Hero assets were modelled with careful attention to proportion, edge detail, and surface quality, then textured with materials that react naturally to light. A high-contrast tech stage with sharp light was assembled around them to give every shot depth and a believable sense of scale.\n\nSupporting props and background elements were kept intentionally simple, so they add richness without competing with the main subject. The result is a world that feels crafted, tidy, and easy to read.",
+      ],
+      [
+        "Animation",
+        "Motion, Lighting & Final Render",
+        "Camera moves, timing, and transitions were animated to guide the eye through each scene with a clear rhythm. Lighting and reflections were refined shot by shot so key details stay sharp and the mood stays consistent.\n\nThe final render and colour grade bring everything together into a clean, cinematic finish, delivered in the formats Xiaomi needs for launch and for future reuse.",
+      ],
+    ],
   }),
 
   make("Branding", "I4You", "The Next Chapter", "for I4You", {
     meta: facts("Services", "Brand Strategy & Identity", "6 Weeks"),
     overview:
-      "The I4You identity creates a clear foundation for a growing service brand. Strategic positioning, considered typography, and a cohesive visual system help the brand communicate its value consistently across digital and printed touchpoints.",
-    story: brandStory,
+      "I4You came to us looking for an identity that feels confident and approachable and is easy to recognise at a glance. We started with the brand’s purpose and audience, then built a visual system around a simple, friendly letterform.\n\nThe final identity brings together a distinctive logo, a bright, balanced colour palette, and a clear typographic voice. It works equally well on websites, social media, and printed materials, giving I4You a consistent presence wherever people meet the brand and a solid base to build on as it grows.",
+    story: [
+      [
+        "Strategy",
+        "Defining the I4You Brand",
+        "We began with interviews and a review of the market to understand what makes I4You different. Key values, audience needs, and tone of voice were distilled into a short brand platform.\n\nThat platform became the filter for every creative decision, from early ideas to the final colour choices, and kept the whole team aligned on what the brand should feel like.",
+      ],
+      [
+        "Identity",
+        "Designing a Distinctive Visual System",
+        "The visual identity centres on a simple, friendly letterform. Logo options were explored, refined, and tested at small and large sizes before one clear direction was chosen.\n\nA bright, balanced colour palette and a considered type pairing complete the system, giving the brand a recognisable look that stays flexible across different formats and applications.",
+      ],
+      [
+        "Guidelines",
+        "Bringing the Brand Together",
+        "A concise brand book explains how to use the logo, colours, typography, and supporting graphics, with simple dos and don’ts for everyday work.\n\nTemplates and sample applications for websites, social media, and printed materials show the system in action, so the I4You team can launch confidently and keep every touchpoint consistent as the brand grows.",
+      ],
+    ],
   }),
 
   make("Branding", "Berry Babe", "The Flavor of", "The Berry Babe Brand", {
     featured: true,
     meta: facts("Food & Beverage", "Brand Strategy & Identity", "6 Weeks"),
     overview:
-      "Berry Babe brings a fresh and expressive personality to the food and beverage space. A playful visual direction, distinctive colour choices, and a consistent identity system help the brand feel recognisable while giving its products room to stand out.",
-    story: brandStory,
+      "Berry Babe came to us looking for an identity that feels fresh and playful and is easy to recognise at a glance. We started with the brand’s purpose and audience, then built a visual system around juicy, hand-drawn berry shapes.\n\nThe final identity brings together a distinctive logo, vivid berry tones, and a clear typographic voice. It works equally well on packaging, menus, and social content, giving Berry Babe a consistent presence wherever people meet the brand and a solid base to build on as it grows.",
+    story: [
+      [
+        "Strategy",
+        "Defining the Berry Babe Brand",
+        "We began with interviews and a review of the market to understand what makes Berry Babe different. Key values, audience needs, and tone of voice were distilled into a short brand platform.\n\nThat platform became the filter for every creative decision, from early ideas to the final colour choices, and kept the whole team aligned on what the brand should feel like.",
+      ],
+      [
+        "Identity",
+        "Designing a Distinctive Visual System",
+        "The visual identity centres on juicy, hand-drawn berry shapes. Logo options were explored, refined, and tested at small and large sizes before one clear direction was chosen.\n\nVivid berry tones and a considered type pairing complete the system, giving the brand a recognisable look that stays flexible across different formats and applications.",
+      ],
+      [
+        "Guidelines",
+        "Bringing the Brand Together",
+        "A concise brand book explains how to use the logo, colours, typography, and supporting graphics, with simple dos and don’ts for everyday work.\n\nTemplates and sample applications for packaging, menus, and social content show the system in action, so the Berry Babe team can launch confidently and keep every touchpoint consistent as the brand grows.",
+      ],
+    ],
   }),
 
-  make(
-    "Branding",
-    "Futureproof",
-    "Building Tomorrow's Identity",
-    "for Futureproof",
-    {
-      meta: facts("Technology", "Brand Strategy & Identity", "6 Weeks"),
-      overview:
-        "Futureproof uses a forward-looking identity to communicate clarity, progress, and confidence. The visual system balances contemporary design choices with practical guidelines that keep the brand consistent as its audience and services grow.",
-      story: brandStory,
-    },
-  ),
+  make("Branding", "Futureproof", "Building Tomorrow's Identity", "for Futureproof", {
+    meta: facts("Technology", "Brand Strategy & Identity", "6 Weeks"),
+    overview:
+      "Futureproof came to us looking for an identity that feels modern and reliable and is easy to recognise at a glance. We started with the brand’s purpose and audience, then built a visual system around a clean geometric mark.\n\nThe final identity brings together a distinctive logo, a cool, forward-looking palette, and a clear typographic voice. It works equally well on product interfaces, presentations, and websites, giving Futureproof a consistent presence wherever people meet the brand and a solid base to build on as it grows.",
+    story: [
+      [
+        "Strategy",
+        "Defining the Futureproof Brand",
+        "We began with interviews and a review of the market to understand what makes Futureproof different. Key values, audience needs, and tone of voice were distilled into a short brand platform.\n\nThat platform became the filter for every creative decision, from early ideas to the final colour choices, and kept the whole team aligned on what the brand should feel like.",
+      ],
+      [
+        "Identity",
+        "Designing a Distinctive Visual System",
+        "The visual identity centres on a clean geometric mark. Logo options were explored, refined, and tested at small and large sizes before one clear direction was chosen.\n\nA cool, forward-looking palette and a considered type pairing complete the system, giving the brand a recognisable look that stays flexible across different formats and applications.",
+      ],
+      [
+        "Guidelines",
+        "Bringing the Brand Together",
+        "A concise brand book explains how to use the logo, colours, typography, and supporting graphics, with simple dos and don’ts for everyday work.\n\nTemplates and sample applications for product interfaces, presentations, and websites show the system in action, so the Futureproof team can launch confidently and keep every touchpoint consistent as the brand grows.",
+      ],
+    ],
+  }),
 
-  make(
-    "Branding",
-    "letter",
-    "A Clear Identity for a Modern Brand",
-    "Visual Identity",
-    {
-      meta: facts("Design", "Brand Strategy & Identity", "6 Weeks"),
-      overview:
-        "The Letter concept explores how typography, spacing, and a restrained visual language can create a distinctive brand presence. The identity is designed to remain flexible across digital layouts and printed applications.",
-      story: brandStory,
-    },
-  ),
+  make("Branding", "Letter", "A Clear Identity for a Modern Brand", "Visual Identity", {
+    meta: facts("Design", "Brand Strategy & Identity", "6 Weeks"),
+    overview:
+      "Letter came to us looking for an identity that feels refined and minimal and is easy to recognise at a glance. We started with the brand’s purpose and audience, then built a visual system around expressive typography and generous spacing.\n\nThe final identity brings together a distinctive logo, a restrained neutral palette, and a clear typographic voice. It works equally well on stationery, digital layouts, and printed pieces, giving Letter a consistent presence wherever people meet the brand and a solid base to build on as it grows.",
+    story: [
+      [
+        "Strategy",
+        "Defining the Letter Brand",
+        "We began with interviews and a review of the market to understand what makes Letter different. Key values, audience needs, and tone of voice were distilled into a short brand platform.\n\nThat platform became the filter for every creative decision, from early ideas to the final colour choices, and kept the whole team aligned on what the brand should feel like.",
+      ],
+      [
+        "Identity",
+        "Designing a Distinctive Visual System",
+        "The visual identity centres on expressive typography and generous spacing. Logo options were explored, refined, and tested at small and large sizes before one clear direction was chosen.\n\nA restrained neutral palette and a considered type pairing complete the system, giving the brand a recognisable look that stays flexible across different formats and applications.",
+      ],
+      [
+        "Guidelines",
+        "Bringing the Brand Together",
+        "A concise brand book explains how to use the logo, colours, typography, and supporting graphics, with simple dos and don’ts for everyday work.\n\nTemplates and sample applications for stationery, digital layouts, and printed pieces show the system in action, so the Letter team can launch confidently and keep every touchpoint consistent as the brand grows.",
+      ],
+    ],
+  }),
 
-  make("Branding", "green", "A Fresh Perspective on Identity", "Brand Design", {
+  make("Branding", "Green", "A Fresh Perspective on Identity", "Brand Design", {
     meta: facts("Lifestyle", "Brand Strategy & Identity", "6 Weeks"),
     overview:
-      "The Green identity draws on a fresh, balanced visual direction to create a brand that feels approachable and easy to recognise. A coordinated palette, clear typography, and practical guidelines bring consistency to every touchpoint.",
-    story: brandStory,
+      "Green came to us looking for an identity that feels fresh and balanced and is easy to recognise at a glance. We started with the brand’s purpose and audience, then built a visual system around organic shapes with a natural rhythm.\n\nThe final identity brings together a distinctive logo, layered green tones, and a clear typographic voice. It works equally well on packaging, signage, and digital channels, giving Green a consistent presence wherever people meet the brand and a solid base to build on as it grows.",
+    story: [
+      [
+        "Strategy",
+        "Defining the Green Brand",
+        "We began with interviews and a review of the market to understand what makes Green different. Key values, audience needs, and tone of voice were distilled into a short brand platform.\n\nThat platform became the filter for every creative decision, from early ideas to the final colour choices, and kept the whole team aligned on what the brand should feel like.",
+      ],
+      [
+        "Identity",
+        "Designing a Distinctive Visual System",
+        "The visual identity centres on organic shapes with a natural rhythm. Logo options were explored, refined, and tested at small and large sizes before one clear direction was chosen.\n\nLayered green tones and a considered type pairing complete the system, giving the brand a recognisable look that stays flexible across different formats and applications.",
+      ],
+      [
+        "Guidelines",
+        "Bringing the Brand Together",
+        "A concise brand book explains how to use the logo, colours, typography, and supporting graphics, with simple dos and don’ts for everyday work.\n\nTemplates and sample applications for packaging, signage, and digital channels show the system in action, so the Green team can launch confidently and keep every touchpoint consistent as the brand grows.",
+      ],
+    ],
   }),
 
-  make(
-    "Branding",
-    "Pasta Si",
-    "Rooted in Purpose, More Than a Meal",
-    "with Pasta Si",
-    {
-      meta: facts("Food & Beverage", "Brand Strategy & Identity", "6 Weeks"),
-      images: {
-        hero: "/images/cases/pasta-si/hero.gif",
-      },
-      overview:
-        "Pasta Si builds its identity around the warmth and connection that make food meaningful. A welcoming visual language and thoughtful brand elements communicate the story while keeping the identity adaptable across menus, packaging, and digital platforms.",
-      story: brandStory,
+  make("Branding", "Pasta Si", "Rooted in Purpose, More Than a Meal", "with Pasta Si", {
+    meta: facts("Food & Beverage", "Brand Strategy & Identity", "6 Weeks"),
+    images: {
+      hero: "/images/cases/pasta-si/hero.gif",
+      cover: "/images/cases/pasta-si/hero.gif",
     },
-  ),
+    overview:
+      "Pasta Si came to us looking for an identity that feels warm and welcoming and is easy to recognise at a glance. We started with the brand’s purpose and audience, then built a visual system around hand-crafted lettering and food-led details.\n\nThe final identity brings together a distinctive logo, warm, appetising colours, and a clear typographic voice. It works equally well on menus, packaging, and in-store signage, giving Pasta Si a consistent presence wherever people meet the brand and a solid base to build on as it grows.",
+    story: [
+      [
+        "Strategy",
+        "Defining the Pasta Si Brand",
+        "We began with interviews and a review of the market to understand what makes Pasta Si different. Key values, audience needs, and tone of voice were distilled into a short brand platform.\n\nThat platform became the filter for every creative decision, from early ideas to the final colour choices, and kept the whole team aligned on what the brand should feel like.",
+      ],
+      [
+        "Identity",
+        "Designing a Distinctive Visual System",
+        "The visual identity centres on hand-crafted lettering and food-led details. Logo options were explored, refined, and tested at small and large sizes before one clear direction was chosen.\n\nWarm, appetising colours and a considered type pairing complete the system, giving the brand a recognisable look that stays flexible across different formats and applications.",
+      ],
+      [
+        "Guidelines",
+        "Bringing the Brand Together",
+        "A concise brand book explains how to use the logo, colours, typography, and supporting graphics, with simple dos and don’ts for everyday work.\n\nTemplates and sample applications for menus, packaging, and in-store signage show the system in action, so the Pasta Si team can launch confidently and keep every touchpoint consistent as the brand grows.",
+      ],
+    ],
+  }),
 
-  make(
-    "Branding",
-    "Truway",
-    "Designed to Say More with Less",
-    "Consistency Across the Journey for Truway",
-    {
-      meta: facts("Services", "Brand Strategy & Identity", "6 Weeks"),
-      overview:
-        "Truway uses a simple and confident identity to make its message easier to understand. Consistent typography, a purposeful palette, and a clear visual hierarchy help the brand communicate reliably across its customer journey.",
-      story: brandStory,
-    },
-  ),
+  make("Branding", "Truway", "Designed to Say More with Less", "Consistency Across the Journey for Truway", {
+    meta: facts("Services", "Brand Strategy & Identity", "6 Weeks"),
+    overview:
+      "Truway came to us looking for an identity that feels clear and trustworthy and is easy to recognise at a glance. We started with the brand’s purpose and audience, then built a visual system around a minimal mark on a strong grid.\n\nThe final identity brings together a distinctive logo, a calm, confident palette, and a clear typographic voice. It works equally well on customer communications, apps, and print, giving Truway a consistent presence wherever people meet the brand and a solid base to build on as it grows.",
+    story: [
+      [
+        "Strategy",
+        "Defining the Truway Brand",
+        "We began with interviews and a review of the market to understand what makes Truway different. Key values, audience needs, and tone of voice were distilled into a short brand platform.\n\nThat platform became the filter for every creative decision, from early ideas to the final colour choices, and kept the whole team aligned on what the brand should feel like.",
+      ],
+      [
+        "Identity",
+        "Designing a Distinctive Visual System",
+        "The visual identity centres on a minimal mark on a strong grid. Logo options were explored, refined, and tested at small and large sizes before one clear direction was chosen.\n\nA calm, confident palette and a considered type pairing complete the system, giving the brand a recognisable look that stays flexible across different formats and applications.",
+      ],
+      [
+        "Guidelines",
+        "Bringing the Brand Together",
+        "A concise brand book explains how to use the logo, colours, typography, and supporting graphics, with simple dos and don’ts for everyday work.\n\nTemplates and sample applications for customer communications, apps, and print show the system in action, so the Truway team can launch confidently and keep every touchpoint consistent as the brand grows.",
+      ],
+    ],
+  }),
 
   make("Branding", "Resurge", "The Power of Renewal", "for Resurge", {
     meta: facts("Wellness", "Brand Strategy & Identity", "6 Weeks"),
     overview:
-      "Resurge is shaped around renewal, momentum, and positive change. Its visual identity combines an energetic personality with a coherent system that supports clear communication across digital and brand applications.",
-    story: brandStory,
+      "Resurge came to us looking for an identity that feels energetic and optimistic and is easy to recognise at a glance. We started with the brand’s purpose and audience, then built a visual system around dynamic shapes that suggest upward movement.\n\nThe final identity brings together a distinctive logo, bold, uplifting colours, and a clear typographic voice. It works equally well on digital campaigns, merchandise, and packaging, giving Resurge a consistent presence wherever people meet the brand and a solid base to build on as it grows.",
+    story: [
+      [
+        "Strategy",
+        "Defining the Resurge Brand",
+        "We began with interviews and a review of the market to understand what makes Resurge different. Key values, audience needs, and tone of voice were distilled into a short brand platform.\n\nThat platform became the filter for every creative decision, from early ideas to the final colour choices, and kept the whole team aligned on what the brand should feel like.",
+      ],
+      [
+        "Identity",
+        "Designing a Distinctive Visual System",
+        "The visual identity centres on dynamic shapes that suggest upward movement. Logo options were explored, refined, and tested at small and large sizes before one clear direction was chosen.\n\nBold, uplifting colours and a considered type pairing complete the system, giving the brand a recognisable look that stays flexible across different formats and applications.",
+      ],
+      [
+        "Guidelines",
+        "Bringing the Brand Together",
+        "A concise brand book explains how to use the logo, colours, typography, and supporting graphics, with simple dos and don’ts for everyday work.\n\nTemplates and sample applications for digital campaigns, merchandise, and packaging show the system in action, so the Resurge team can launch confidently and keep every touchpoint consistent as the brand grows.",
+      ],
+    ],
   }),
 
-  make(
-    "Branding",
-    "UFO Bean",
-    "An Out-of-This-World Branding",
-    "for UFO Bean",
-    {
-      featured: true,
-      meta: facts("Food & Beverage", "Brand Strategy & Identity", "6 Weeks"),
-      overview:
-        "UFO Bean takes a bold approach to coffee branding, using a playful concept and distinctive visual language to stand apart. The identity brings together memorable brand assets, coordinated colours, and practical design rules for a consistent customer experience.",
-      story: brandStory,
-    },
-  ),
+  make("Branding", "UFO Bean", "An Out-of-This-World Branding", "for UFO Bean", {
+    featured: true,
+    meta: facts("Food & Beverage", "Brand Strategy & Identity", "6 Weeks"),
+    overview:
+      "UFO Bean came to us looking for an identity that feels bold and playful and is easy to recognise at a glance. We started with the brand’s purpose and audience, then built a visual system around a quirky, saucer-inspired mark.\n\nThe final identity brings together a distinctive logo, high-contrast, space-inspired colours, and a clear typographic voice. It works equally well on cups, packaging, and social media, giving UFO Bean a consistent presence wherever people meet the brand and a solid base to build on as it grows.",
+    story: [
+      [
+        "Strategy",
+        "Defining the UFO Bean Brand",
+        "We began with interviews and a review of the market to understand what makes UFO Bean different. Key values, audience needs, and tone of voice were distilled into a short brand platform.\n\nThat platform became the filter for every creative decision, from early ideas to the final colour choices, and kept the whole team aligned on what the brand should feel like.",
+      ],
+      [
+        "Identity",
+        "Designing a Distinctive Visual System",
+        "The visual identity centres on a quirky, saucer-inspired mark. Logo options were explored, refined, and tested at small and large sizes before one clear direction was chosen.\n\nHigh-contrast, space-inspired colours and a considered type pairing complete the system, giving the brand a recognisable look that stays flexible across different formats and applications.",
+      ],
+      [
+        "Guidelines",
+        "Bringing the Brand Together",
+        "A concise brand book explains how to use the logo, colours, typography, and supporting graphics, with simple dos and don’ts for everyday work.\n\nTemplates and sample applications for cups, packaging, and social media show the system in action, so the UFO Bean team can launch confidently and keep every touchpoint consistent as the brand grows.",
+      ],
+    ],
+  }),
 ];
 
 export const caseTabs = ["All", ...Object.keys(categories)];

@@ -5,7 +5,6 @@ import { getCase } from '../data/cases'
 import { assets } from '../data/about'
 import ImageText from '../components/ui/ImageText'
 import Tag from '../components/ui/Tag'
-import Button from '../components/ui/Button'
 import Sphere from '../components/ui/Sphere'
 import OtherProjects from '../components/case/OtherProjects'
 import CreateSection from '../components/case/CreateSection'
@@ -35,10 +34,6 @@ function SectionTitle({ light, bold, id, className = '' }) {
   )
 }
 
-/**
- * SmartMedia component handles both Video files (.mp4, .webm, .mov)
- * and regular Image assets within the same layout structure.
- */
 function SmartMedia({ src, alt, className = '' }) {
   if (!src) return null
 
@@ -96,7 +91,6 @@ export default function CaseStudy() {
       <motion.div aria-hidden="true" style={{ scaleX: progress }} className="fixed inset-x-0 top-0 z-[60] h-0.5 origin-left bg-gradient-to-r from-sky to-pink" />
 
       <article className="relative overflow-x-clip bg-bg text-ink">
-        {/* ================= HERO ================= */}
         <header className="relative bg-[linear-gradient(180deg,#a9c6ee_0%,#cde0f9_30%,#f6f9ff_72%)] px-6 pb-28 pt-36 text-center md:px-10">
           <div aria-hidden="true" className="rays pointer-events-none absolute inset-y-0 right-0 w-3/4 opacity-40" />
           <Sphere className="-right-10 top-[44rem] z-0 h-36 w-36 md:h-40 md:w-40" variant="blue" />
@@ -113,13 +107,6 @@ export default function CaseStudy() {
               {c.headline} {c.accent && <span className="text-pink">{c.accent}</span>}
             </motion.h1>
 
-            {c.website && (
-              <motion.div {...onLoad(0.16)} className="mt-8">
-                <Button href={c.website}>Visit website <ArrowUpRight size={16} /></Button>
-              </motion.div>
-            )}
-
-            {/* Hero Media (Supports Video or Image) */}
             <motion.div {...onLoad(0.24)} className="relative mx-auto mt-12 max-w-4xl rounded-[28px] border border-white/90 bg-white/50 p-1.5 shadow-[0_28px_50px_-30px_rgba(20,34,107,0.35)]">
               <div className="relative overflow-hidden rounded-3xl">
                 <SmartMedia
@@ -128,7 +115,6 @@ export default function CaseStudy() {
                   className="aspect-[4/3] w-full md:aspect-[2.1/1]"
                 />
 
-                {/* Glassmorphism Facts Bar */}
                 <dl className={`absolute inset-x-2 bottom-2 grid divide-x divide-white/25 overflow-hidden rounded-2xl border border-white/40 bg-white/15 text-center text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.45)] backdrop-blur-2xl [text-shadow:0_1px_10px_rgba(0,0,0,0.35)] md:inset-x-3 md:bottom-3 ${metaCols}`}>
                   {meta.map((m) => (
                     <div key={m.label} className="flex flex-col-reverse px-2 py-3 md:px-4 md:py-3.5">
@@ -139,10 +125,27 @@ export default function CaseStudy() {
                 </dl>
               </div>
             </motion.div>
+
+            {c.website && (
+              <motion.div {...onLoad(0.32)} className="mt-8">
+                <a
+                  href={c.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 font-display text-base font-medium text-pink underline-offset-4 transition-colors hover:underline md:text-lg"
+                >
+                  Visit website
+                  <ArrowUpRight
+                    size={20}
+                    strokeWidth={2.25}
+                    className="text-pink transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  />
+                </a>
+              </motion.div>
+            )}
           </div>
         </header>
 
-        {/* ================= OVERVIEW CARD ================= */}
         {c.overview && (
           <section aria-labelledby="overview" className="relative -mt-12 z-20 px-6 md:px-10">
             <Sphere className="-left-12 top-1/2 z-0 h-36 w-36 -translate-y-1/2 md:h-40 md:w-40" />
@@ -163,7 +166,6 @@ export default function CaseStudy() {
           </section>
         )}
 
-        {/* ================= STORY SECTIONS ================= */}
         {c.sections?.length > 0 && (
           <div className="mt-32 grid gap-24 md:mt-40 md:gap-32">
             {c.sections.map((s, i) => {
@@ -184,7 +186,6 @@ export default function CaseStudy() {
                     </div>
                   </div>
 
-                  {/* Right Side Stacked Media (Supports Mix of Videos and Images) */}
                   <div className="grid w-full gap-6 overflow-hidden lg:w-[92%] lg:justify-self-end lg:rounded-l-[2rem]">
                     {mediaItems.map((src, n) => (
                       <SmartMedia
@@ -201,7 +202,6 @@ export default function CaseStudy() {
           </div>
         )}
 
-        {/* ================= GALLERY ================= */}
         {c.images?.gallery?.length > 0 && (
           <section aria-labelledby="gallery" className="mt-32 md:mt-40">
             <motion.div {...onScroll} className="px-6 text-center">
@@ -228,14 +228,12 @@ export default function CaseStudy() {
           </section>
         )}
 
-        {/* ================= OTHER PROJECTS ================= */}
         <div className="relative mt-32 md:mt-44">
           <ImageText src={assets.projectsText} className="text-[9.5vw]">Other Projects</ImageText>
         </div>
         <div className="h-16" />
       </article>
 
-      {/* Dark closing block */}
       <div className="mesh-dark relative">
         <OtherProjects currentSlug={c.slug} />
         <CreateSection />

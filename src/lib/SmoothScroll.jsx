@@ -1,42 +1,51 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 import Lenis from 'lenis'
 
-export default function SmoothScroll() {
-  const { pathname, hash } = useLocation()
+let instance = null
 
+const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t))
+
+export const stopScroll = () => instance?.stop()
+export const startScroll = () => instance?.start()
+
+export function scrollToTop(immediate = false) {
+  if (instance) instance.scrollTo(0, { immediate, duration: 1.3, easing: easeOutExpo })
+  else window.scrollTo({ top: 0, behavior: immediate ? 'auto' : 'smooth' })
+}
+
+export function scrollToElement(el) {
+  if (!el) return false
+  const offset = -(parseFloat(getComputedStyle(el).scrollMarginTop) || 0)
+  if (instance) instance.scrollTo(el, { offset, duration: 1.4, easing: easeOutExpo })
+  else el.scrollIntoView({ behavior: 'smooth' })
+  return true
+}
+
+export default function SmoothScroll() {
   useEffect(() => {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual'
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
     const lenis = new Lenis({
-      duration: 1.05,
+      duration: 1.1,
+      easing: easeOutExpo,
       smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.15,
-      anchors: true,
-      autoRaf: true,
+      wheelMultiplier: 1,
+      anchors: false,
+    })
+    instance = lenis
+
+    let frame = requestAnimationFrame(function loop(time) {
+      lenis.raf(time)
+      frame = requestAnimationFrame(loop)
     })
 
-    window.__rocketLenis = lenis
     return () => {
-      if (window.__rocketLenis === lenis) delete window.__rocketLenis
+      cancelAnimationFrame(frame)
       lenis.destroy()
+      instance = null
     }
   }, [])
-
-  useEffect(() => {
-    const lenis = window.__rocketLenis
-    if (hash) {
-      const frame = requestAnimationFrame(() => {
-        const target = document.querySelector(decodeURIComponent(hash))
-        if (target) {
-          if (window.__rocketLenis) window.__rocketLenis.scrollTo(target, { offset: -12 })
-          else target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        }
-      })
-      return () => cancelAnimationFrame(frame)
-    }
-    if (lenis) lenis.scrollTo(0, { immediate: true })
-    else window.scrollTo({ top: 0, behavior: 'auto' })
-  }, [pathname, hash])
 
   return null
 }
